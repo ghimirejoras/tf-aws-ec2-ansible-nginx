@@ -1,37 +1,45 @@
-# Local .terraform directories
-**/.terraform/*
-
-# .tfstate files
+# Terraform state files (contain sensitive data)
 *.tfstate
 *.tfstate.*
+.terraform
+.terraform/
+.terraform.tfstate.lock.info
 
-# Crash log files
-crash.log
-crash.*.log
-
-# Exclude all .tfvars files, which are likely to contain sensitive data, such as
-# password, private keys, and other secrets. These should not be part of version 
-# control as they are data points which are potentially sensitive and subject 
-# to change depending on the environment.
+# Terraform variables & backend configs (may contain secrets)
 *.tfvars
 *.tfvars.json
+backend-config.tfvars
 
-# Ignore override files as they are usually used to override resources locally and so
-# are not checked in
+# Terraform plan & override files (local execution)
+*.tfplan
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
 
-# Ignore transient lock info files created by terraform apply
-.terraform.tfstate.lock.info
+# Crash log files
+crash.log
+crash.*.log
 
-# Include override files you do wish to add to version control using negated pattern
-# !example_override.tf
+# Sensitive data (SSH keys, credentials)
+*.pem
+*.key
+id_rsa
+id_rsa.pub
 
-# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
-# example: *tfplan*
-
-# Ignore CLI configuration files
+# Terraform CLI configuration files
 .terraformrc
 terraform.rc
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ansible files (if Ansible is in your repo)
+ansible/hosts
+ansible/.ansible.cfg
+
